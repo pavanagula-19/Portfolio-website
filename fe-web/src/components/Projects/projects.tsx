@@ -5,7 +5,7 @@ import StarrySkySVG from "../particles";
 const Projects: React.FC = () => {
   return (
     <div className="relative w-full h-screen bg-gray-900 text-white py-12 px-6">
-     <StarrySkySVG/>
+      <StarrySkySVG />
       <div className="relative max-w-6xl mx-auto text-center">
         <h1 className="text-4xl font-bold mb-4">
           My Recent <span className="text-purple-500">Works</span>
@@ -23,11 +23,19 @@ const Projects: React.FC = () => {
             demoLink="https://presento-notes-app.netlify.app"
           />
           <ProjectCard
-            imgPath="https://ik.imagekit.io/pavanagulla19/Screenshot%20from%202025-03-04%2016-50-09.png?updatedAt=1741112887621"
+            imgPath="https://ik.imagekit.io/pavanagulla19/Screenshot%20from%202025-02-23%2018-21-12.png?updatedAt=1741197797974"
             isBlog={false}
             title="Socio-Hub"
-            description="Personal blog built with Next.js and Tailwind CSS. Uses markdown files for content, supports dark mode, and easy blogging."
+            description="Social media platform with features of integrated facebook and instagram, Connected with friends and families creating communities and much more."
             ghLink="https://github.com/pavanagula-19/Socio-Hub"
+            demoLink="https://blogs.tech/"
+          />
+          <ProjectCard
+            imgPath="https://ik.imagekit.io/pavanagulla19/Screenshot%20from%202025-03-06%2000-03-17.png?updatedAt=1741199642958"
+            isBlog={false}
+            title="E-commerce"
+            description="Personal blog built with Next.js and Tailwind CSS. Uses markdown files for content, supports dark mode, and easy blogging."
+            ghLink="https://github.com/pavanagula-19/E-COMMERCE"
             demoLink="https://blogs.tech/"
           />
         </div>

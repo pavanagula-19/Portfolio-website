@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const generateStars = (numStars: number) => {
+const generateStars = (numStars: number, width: number, height: number) => {
   const stars = [];
   for (let i = 0; i < numStars; i++) {
-    const x = Math.random() * 800; // Random X position
-    const y = Math.random() * 600; // Random Y position
-    const radius = Math.random() * 0.9 + 0.3; // Smaller stars (0.3px - 1.2px)
-    const opacity = Math.random() * 0.3 + 0.3; // Dimmer stars (0.3 - 0.6 opacity)
+    const x = Math.random() * width;
+    const y = Math.random() * height;
+    const radius = Math.random() * 1.2 + 0.3;
+    const opacity = Math.random() * 0.4 + 0.2;
 
     stars.push(
       <circle key={i} cx={x} cy={y} r={radius} fill="white" opacity={opacity} />
@@ -16,13 +16,31 @@ const generateStars = (numStars: number) => {
 };
 
 const StarrySkySVG: React.FC = () => {
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <svg
       className="absolute inset-0 w-full h-full"
-      viewBox="0 0 800 600"
+      width={dimensions.width}
+      height={dimensions.height}
       xmlns="http://www.w3.org/2000/svg"
     >
-      {generateStars(150)} {/* Generates 150 tiny dim stars */}
+      {generateStars(200, dimensions.width, dimensions.height)}
     </svg>
   );
 };
