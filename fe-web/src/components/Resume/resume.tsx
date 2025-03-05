@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { AiOutlineDownload } from "react-icons/ai";
 import StarrySkySVG from "../particles";
 
@@ -7,11 +7,10 @@ const RESUME_URL =
   "https://ik.imagekit.io/pavanagulla19/Resume/Pavan_Resume-2.pdf?updatedAt=1741159099389";
 
 const Resume: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(true); // Change true to false
   useEffect(() => {
-    setIsOpen(false); // Ensure sidebar starts closed
+    // If you had logic here related to 'isOpen', you can keep it.
   }, []);
-  
+
   return (
     <div className="w-full min-h-screen bg-gray-900 text-white py-12 px-6 flex flex-col items-center relative">
       {/* Animated Background */}
@@ -31,11 +30,7 @@ const Resume: React.FC = () => {
 
       {/* Static PDF Viewer */}
       <div className="w-full max-w-4xl h-[80vh] border border-gray-700 rounded-lg overflow-hidden bg-gray-800 shadow-lg">
-        <iframe
-          src={RESUME_URL}
-          title="Resume PDF"
-          className="w-full h-full"
-        />
+        <iframe src={RESUME_URL} title="Resume PDF" className="w-full h-full" />
       </div>
 
       {/* Second Download Button */}
